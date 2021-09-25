@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CommentController;
+use App\Http\Controllers\API\AuthController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +17,9 @@ use App\Http\Controllers\API\CommentController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
 
 Route::resource('comments', CommentController::class)->only([
     'index', 'show'
